@@ -1,0 +1,19 @@
+<p>
+  <b>List Name:</b>
+  <%= @list.name %>
+</p>
+
+<ul>
+  <% @list.items.each do |item| %>
+  <li><%= item.task %></li>
+  <% end %>
+</ul>
+
+<%= form_for [@list, @item] do |f| %>
+  <%= f.label :task %>
+  <%= f.text_field :task %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Edit', edit_list_path(@list) %>
+<%= link_to 'Back', lists_path %>
